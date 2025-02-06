@@ -1,0 +1,26 @@
+﻿@model TodoItem
+
+@{}
+
+<h1 class="text-center">Insertar Tarea</h1>
+<form asp-action="CrearTarea" method="post" class="d-flex justify-content-center flex-column">
+	<div class="mb-3">
+		<label for="Title" class="form-label">Titulo Tarea</label>
+        <input type="text" class="form-control" id="Title" asp-for="Title" placeholder="Escribe el título">
+	</div>
+	<button type="submit" class="button-crear">Enviar</button>
+</form>
+
+@if (TempData["MensajeCorrecto"] != null)
+{
+    <div class="toast show position-fixed top-0 end-0 m-3 bg-success text-white" role="alert">
+        <div class="toast-header">
+            <strong class="me-auto">Éxito</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body">
+            @TempData["MensajeCorrecto"]
+        </div>
+    </div>
+}
+
